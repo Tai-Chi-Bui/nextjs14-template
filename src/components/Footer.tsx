@@ -8,13 +8,13 @@ const Footer = () => {
     return (
         <footer className='bg-slate-100 w-full min-h-20 border-t border-gray-200 flex flex-col md:flex-row gap-2 items-center justify-between px-7 py-5'>
             <div className='text-center md:text-left'>
-                <p className='text-sm text-muted-foreground'>
+                <p className='text-sm text-muted-foreground font-medium'>
                     &copy; {new Date().getFullYear()} All Rights
                     Reserved
                 </p>
             </div>
 
-            <div className='flex items-center justify-center gap-5'>
+            <div className='flex items-center justify-center gap-5 font-medium'>
                 <Link
                     href='#'
                     className='text-sm text-muted-foreground hover:text-gray-600'>
