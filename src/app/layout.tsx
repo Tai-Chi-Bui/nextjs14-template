@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import { Toaster } from 'sonner'
 import Navbar from "@/components/Navbar";
 import Footer from '@/components/Footer'
+import 'dotenv/config'
 
 const inter = Inter({ subsets: ["latin"] });
 
