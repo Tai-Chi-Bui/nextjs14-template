@@ -21,7 +21,7 @@ const UserAccountNav = ({ user }: { user: any }) => {
                 <Button
                     variant='ghost'
                     size='sm'
-                    className='relative'>
+                    className='relative p-0 font-medium text-gray-900'>
                     My account
                 </Button>
             </DropdownMenuTrigger>
@@ -31,7 +31,7 @@ const UserAccountNav = ({ user }: { user: any }) => {
                 align='end'>
                 <div className='flex items-center justify-start gap-2 p-2'>
                     <div className='flex flex-col space-y-0.5 leading-none'>
-                        <p className='font-medium text-sm text-black'>
+                        <p className='text-sm font-medium text-black'>
                             {user.email}
                         </p>
                     </div>
@@ -40,7 +40,7 @@ const UserAccountNav = ({ user }: { user: any }) => {
                 <DropdownMenuSeparator />
 
                 <DropdownMenuItem asChild>
-                    <Link href='/sell'>Settings</Link>
+                    <Link href='/Settings'>Settings</Link>
                 </DropdownMenuItem>
 
                 <DropdownMenuItem

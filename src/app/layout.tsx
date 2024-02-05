@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from '@/lib/utils'
 import { Toaster } from 'sonner'
 import Navbar from "@/components/Navbar";
+import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
           <div className="flex-1">
             {children}
           </div>
+          <Footer />
         </main>
         <Toaster position='top-center' richColors />
       </body>

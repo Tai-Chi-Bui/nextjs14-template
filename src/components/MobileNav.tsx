@@ -6,11 +6,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import UserAccountNav from './UserAccountNav'
 
 const MobileNav = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     const pathname = usePathname()
+    const user = false
 
     // whenever we click an item in the menu and navigate away, we want to close the menu
     useEffect(() => {
@@ -37,7 +39,7 @@ const MobileNav = () => {
             <button
                 type='button'
                 onClick={() => setIsOpen(true)}
-                className='relative inline-flex items-center justify-center p-2 -m-2 text-gray-400 rounded-md lg:hidden'>
+                className='relative inline-flex items-center justify-center p-2 text-gray-400 rounded-md lg:hidden'>
                 <Menu className='w-6 h-6' aria-hidden='true' />
             </button>
         )
@@ -55,12 +57,12 @@ const MobileNav = () => {
                             <button
                                 type='button'
                                 onClick={() => setIsOpen(false)}
-                                className='relative inline-flex items-center justify-center p-2 text-gray-400 rounded-md'>
+                                className='relative inline-flex items-center justify-center p-0 text-gray-400 rounded-md'>
                                 <X className='w-6 h-6' aria-hidden='true' />
                             </button>
                         </div>
 
-                        <div className='mt-2'>
+                        <div>
                             <ul>
                                 {PRODUCT_CATEGORIES.map((category) => (
                                     <li
@@ -99,22 +101,28 @@ const MobileNav = () => {
                         </div>
 
                         <div className='px-4 py-6 space-y-6 border-t border-gray-200'>
-                            <div className='flow-root'>
+                            {
+                                user ? null : (
+                                    <div className='flow-root'>
+                                        <Link
+                                            onClick={() => closeOnCurrent('/sign-in')}
+                                            href='/sign-in'
+                                            className='block p-0 font-medium text-gray-900'>
+                                            Sign in
+                                        </Link>
+                                    </div>
+                                )
+                            }
+
+                            {user ? (
+                                <UserAccountNav user={user} />
+                            ) : (
                                 <Link
-                                    onClick={() => closeOnCurrent('/sign-in')}
-                                    href='/sign-in'
-                                    className='block p-2 -m-2 font-medium text-gray-900'>
-                                    Sign in
-                                </Link>
-                            </div>
-                            <div className='flow-root'>
-                                <Link
-                                    onClick={() => closeOnCurrent('/sign-up')}
                                     href='/sign-up'
-                                    className='block p-2 -m-2 font-medium text-gray-900'>
-                                    Sign up
+                                    className='block p-0 font-medium text-gray-900'>
+                                    Create account
                                 </Link>
-                            </div>
+                            )}
                         </div>
                     </div>
                 </div>
